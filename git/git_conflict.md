@@ -17,4 +17,6 @@ $ git reset --hard 本次修改之前版本
 $ git pull origin localbranch:remotebranch
 # 直接cherry-pick刚才看到的版本号
 git cherry-pick 本次修改版本
+# 推送至远程仓库
+git push origin remotebranch:localbranch
 ```
