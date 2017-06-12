@@ -10,7 +10,7 @@
 $ git pull origin remotebranch:localbranch
 # 更新后，再提交。
 # 更新时产生自动merge信息时，应该直接退出编辑器。
-$ git gl　看一下刚刚提交的版本号
+$ git gl 或者　ｇｉｔ reflog　＃看一下刚刚提交的版本号
 # 还原本次修改内容
 $ git reset --hard 本次修改之前版本
 # 更新服务器代码到本地
