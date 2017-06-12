@@ -63,6 +63,7 @@ git diff只显示尚未暂存的改动，而不是自上次提交以来所做的
 运行git diff后却什么也没有，就是这个原因。
 git diff --staged 也只显示暂存区与上次提交的改动
 ```
+**Note:**使用git difftool --tool=vimdiff可以用vimdiff工具显示改动
 
 **通过编辑.gitignore忽略掉工作目录下的文件一些,实例:**  
 ```
