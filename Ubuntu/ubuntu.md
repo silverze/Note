@@ -15,3 +15,11 @@ cd <Package 路径> # cd emmet-atom
 npm install
 
 ```
+
+### 快捷键
+```
+终端清屏　ctrl+l
+移到当前命令开头　ctrl+a
+移到当前命令结尾　ctrl+e
+将光标前的命令清楚 ctrl+u
+```
