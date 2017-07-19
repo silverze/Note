@@ -1,0 +1,12 @@
+#!/bin/bash
+
+STR=$1 
+PARA=$2
+
+if [ ${PARA}x == '-l'x ]; then
+	find .|xargs grep -ri ${STR} ${PARA} 
+elif [ ${PARA}x == ''x ]; then
+	find .|xargs grep -ri ${STR}
+else
+	echo "command error!"
+fi
