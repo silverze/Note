@@ -85,4 +85,9 @@ doc/*.txt
 # ignore all .pdf files in the doc/ directory
 doc/**/*.pdf
 ```
-**Tip:** GitHub 有一个十分详细的针对数十种项目及语言的 .gitignore 文件列表，你可以在 https://github.com/github/gitignore 找到它
+**Tip:** GitHub 有一个十分详细的针对数十种项目及语言的 .gitignore 文件列表，你可以在 https://github.com/github/gitignore 找到它  
+
+## git log 命令  
+`git log -n #显示最近提交的n条log`  
+`git log --stat #简要的增改行数统计`  
+`git log --author=author_name #筛选出author_name的提交log`

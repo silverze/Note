@@ -26,3 +26,13 @@ grep -n '^$' file ＃查找file中空行的行号
 grep -A2 '^$' file #查找file中空行的行，以及该空行的下面２行 
 grep -B3 '^$' file #查找file中空行的行，以及该空行的上面３行
 ```
+=======
+查找当前目录下包含str字符串的文件
+find .|xargs grep -ri "str"
+
+查找当前目录下包含str字符串的文件，且字显示文件名：
+find .|xargs grep -ri "str" -l
+
+
+### tar 命令  
+`tar -zcvf obj.tar src_dir #将与一个文件夹压缩打包`
