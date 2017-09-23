@@ -27,6 +27,10 @@ npm install
 - 文件可以创建硬链接与软链接，文件夹只能创建软链接
 - 默认使用ln命令创建的是硬链接，硬链接一般用来保存重要文件，防止意外删除  
 
+使用ln 命令创建一个文件夹的软链接，类似于windows中的快捷方式，ln -s src dist,
+注意使用全路径,例如：需要在/home/user/目录下创建一个mstar软链接指向/mnt/hgfs/Mstar/：    
+` ln -s /mnt/hgfs/Mstar/ /home/user/mstar `
+
 ## 解压缩
 1. 对于.tar.gz压缩文件使用命令　`tar -zxvf filename.tar.gz`  
 2. 对于.zip压缩文件使用命令　`unzip filename.zip`
