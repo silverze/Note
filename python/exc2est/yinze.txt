@@ -1,0 +1,15 @@
+en_str_China_1.0=China
+en_str_China_2.0=China
+en_str_China_3.0=China
+
+en_str_Company_1.0=Company
+en_str_Company_2.0=Company
+en_str_Company_3.0=Company
+
+en_str_Author_1.0=Author
+en_str_Author_2.0=Author
+en_str_Author_3.0=Author
+
+en_str_Time_1.0=Time
+en_str_Time_2.0=Time
+en_str_Time_3.0=Time
