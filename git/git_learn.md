@@ -20,6 +20,17 @@ git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 git config --global core.editor vim #设置提交信息编辑器为vim
 ```
+## 上传免密码设置  
+1. 生成RSA KEY：  
+在用户目录下运行命令：`ssh-agent bash`  
+接着生成RSA 密匙：`ssh-keygen -t rsa your-email@email.com`  
+执行上述命令时，有提示信息时按enter键确认，即可；  
+执行完成后会在用户目录下生成两个文件：id_rsa和id_rsa.pub  
+接下通过命令将密匙添加到ssh：`ssh-add`  
+
+2. 关联SSH  
+登录github网站，在settings下的SSH keys 中将id_rsa.pub的内容全部复制添加进去
+
 ## 将本地的一个新建的代码仓库上传至github
 1. 首先在github上创建一个远程代码仓库  
 ![picture01](../picture/github_create_repo01.png)
