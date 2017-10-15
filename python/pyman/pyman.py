@@ -9,8 +9,17 @@ import sys
 logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s[%(levelname)s]: %(message)s')
 logging.disable(logging.CRITICAL) ##调试完成后添加，禁用log
 
+'''
+使用getcwd()获取的路径，是当前的工作路径，如果将该脚本做成一个linux系统中的命令时，
+用户执行时，会出现在当前的目录中创建文件夹，创建文件。
 CUR_PATH = os.getcwd()
 LOCAL_CMD_DIR = CUR_PATH + '/' + 'man_linuxde/'
+'''
+
+SCRIPT_PAHT = os.path.realpath(__file__)
+logging.debug(SCRIPT_PAHT)
+LOCAL_CMD_DIR = os.path.split(SCRIPT_PAHT)[0] + '/.man_linuxde/'
+logging.debug(LOCAL_CMD_DIR)
 
 def get_lookup_cmd():
 	if (len(sys.argv) > 1):
@@ -23,10 +32,10 @@ def get_lookup_cmd():
 
 def create_cmd_dir():
     try:
-        os.mkdir('man_linuxde')
-        logging.debug('man_linuxde创建成功！')
+        os.mkdir(LOCAL_CMD_DIR)
+        logging.debug('.man_linuxde创建成功！')
     except Exception as FileExistsError:
-        logging.debug('man_linuxde目录已经存在')
+        logging.debug('.man_linuxde目录已经存在')
 
 def download_cmd_file(cmd_name):
     url = 'http://man.linuxde.net/' + cmd_name
@@ -39,6 +48,7 @@ def download_cmd_file(cmd_name):
     for buf in res.iter_content(100000):
         playFile.write(buf)
     playFile.close()
+    return html_file
 
 def get_cmd_file(cmd_name):
     if cmd_name is None:
@@ -47,10 +57,11 @@ def get_cmd_file(cmd_name):
     local_cmd = os.listdir(LOCAL_CMD_DIR)
     local_html_file =  cmd_name + '.html'
     if local_html_file in local_cmd:
+        logging.debug(LOCAL_CMD_DIR + local_html_file)
         return (LOCAL_CMD_DIR + local_html_file)
     else:
-        download_cmd_file(cmd_name)
-        get_cmd_file(cmd_name)
+       dcf = download_cmd_file(cmd_name)
+       return dcf
 
 def parse_linuxde_html(cmd_file):
     if cmd_file is None:
@@ -74,7 +85,7 @@ def parse_linuxde_html(cmd_file):
 
     text_list = text_list[2:tail_num]
 
-    all_text = '\n'.join(text_list) 
+    all_text = '\n'.join(text_list)
     print(all_text)
 
 def main():
@@ -83,5 +94,7 @@ def main():
     cmd_file = get_cmd_file(lookup_cmd)
     parse_linuxde_html(cmd_file)
 
+
 if __name__ == '__main__':
     main()
+
