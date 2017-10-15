@@ -7,6 +7,7 @@ import sys
 
 
 logging.basicConfig(level=logging.DEBUG, format=' %(asctime)s[%(levelname)s]: %(message)s')
+logging.disable(logging.CRITICAL) ##调试完成后添加，禁用log
 
 CUR_PATH = os.getcwd()
 LOCAL_CMD_DIR = CUR_PATH + '/' + 'man_linuxde/'
@@ -40,6 +41,9 @@ def download_cmd_file(cmd_name):
     playFile.close()
 
 def get_cmd_file(cmd_name):
+    if cmd_name is None:
+        return
+
     local_cmd = os.listdir(LOCAL_CMD_DIR)
     local_html_file =  cmd_name + '.html'
     if local_html_file in local_cmd:
@@ -49,6 +53,9 @@ def get_cmd_file(cmd_name):
         get_cmd_file(cmd_name)
 
 def parse_linuxde_html(cmd_file):
+    if cmd_file is None:
+        return
+
     file_obj = open(cmd_file)
     soup = bs4.BeautifulSoup(file_obj,'lxml')
     div_body = soup.body
